@@ -295,7 +295,7 @@ public class TestRailClient {
 
     public Case addCase(Testcase caseToAdd, int sectionId) 
             throws IOException, TestRailException {
-        JSONObject payload = new JSONObject().put("title", caseToAdd.getName());
+        JSONObject payload = new JSONObject().put("title", caseToAdd.getClassName() + "." + caseToAdd.getName()).put("custom_platform", 0);
         if (!StringUtils.isEmpty(caseToAdd.getRefs())) {
             payload.put("refs", caseToAdd.getRefs());
         }

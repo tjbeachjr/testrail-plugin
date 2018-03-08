@@ -26,11 +26,14 @@ import javax.xml.bind.annotation.XmlElement;
  */
 public class Testcase {
     private String name;
+    private String classname;
     private Failure failure;
     private Skipped skipped;
     private Float time;
     private String refs;
 
+    @XmlAttribute(name = "classname")
+    public void setClassName(String classname) { this.classname = classname.trim(); }
     @XmlAttribute
     public void setName(String name) { this.name = name.trim(); }
     @XmlElement(name = "failure")
@@ -42,6 +45,7 @@ public class Testcase {
     @XmlAttribute(name = "refs")
     public void setRefs(String refs) { this.refs = refs; }
 
+    public String getClassName() { return this.classname; }
     public String getName() { return this.name; }
     public Failure getFailure() { return this.failure; }
     public Skipped getSkipped() { return this.skipped; }
